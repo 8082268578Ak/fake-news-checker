@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: url("{{ url_for('static', filename='news_bg.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .overlay {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 450px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+
+        .fake { background: rgba(255,0,0,0.8); }
+        .moderate { background: rgba(255,165,0,0.8); }
+        .real { background: rgba(0,200,0,0.8); }
+
+        img {
+            margin-top: 15px;
+            border-radius: 15px;
+            width: 250px;
+        }
+
+        .fact-box {
+            margin-top: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .btn {
+            margin-top: 15px;
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="overlay">
+<div class="card {{ category }}">
+
+    {% if category == "fake" %}
+        <h1>❌ FAKE NEWS</h1>
+        <p>This claim is NOT TRUE</p>
+        <img src="{{ url_for('static', filename='moderate.png') }}">
+        <p>👎 Totally unreliable</p>
+
+    {% elif category == "moderate" %}
+        <h1>🤔 UNVERIFIED NEWS</h1>
+        <p>This news is not confirmed</p>
+        <img src="{{ url_for('static', filename='fake.png') }}">
+        <p>😐 AI is confused</p>
+
+    {% elif category == "real" %}
+        <h1>✅ REAL NEWS</h1>
+        <p>This information appears true</p>
+        <img src="{{ url_for('static', filename='real.png') }}">
+        <p>👍 Verified</p>
+    {% endif %}
+
+    <p>📊 Confidence: {{ confidence }}%</p>
+
+    <!-- 🔍 FACT CHECK -->
+    {% if fact_status == "verified" %}
+        <h3>🔍 Fact Check Sources</h3>
+
+        {% for item in fact_results %}
+            <div class="fact-box">
+                <p><b>{{ item.publisher }}</b> - {{ item.rating }}</p>
+                <a href="{{ item.url }}" target="_blank">Read Source 🔗</a>
+            </div>
+        {% endfor %}
+
+    {% elif fact_status == "no_evidence" %}
+        <h3>⚠️ No fact-check data found</h3>
+    {% endif %}
+
+    <a href="/" class="btn">🔙 Check Another</a>
+    <br>
+    <a href="/dashboard" class="btn">📊 Dashboard</a>
+
+</div>
+</div>
+
+</body>
+</html>

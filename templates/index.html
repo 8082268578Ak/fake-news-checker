@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI News Verifier</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    background:url("{{ url_for('static', filename='news_bg.jpg') }}") no-repeat center center fixed;
+    background-size:cover;
+    color:white;
+}
+
+.overlay {
+    background:rgba(0,0,0,0.6);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container {
+    background:rgba(0,0,0,0.75);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+textarea {
+    width:300px;
+    height:100px;
+    border-radius:10px;
+}
+
+button {
+    margin-top:10px;
+    padding:10px 20px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:10px;
+}
+
+#loading {
+    display:none;
+    margin-top:15px;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink {
+    0%{opacity:1;}
+    50%{opacity:0.4;}
+    100%{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div style="background:black;padding:10px;text-align:center;">
+🧠 AI News Verifier | Real-time Fact Check
+</div>
+
+<div class="overlay">
+<div class="container">
+
+<h1>🔴 LIVE NEWS ANALYSIS</h1>
+
+<form action="/predict" method="post">
+<textarea name="news"></textarea><br>
+<button type="submit">Analyze</button>
+</form>
+
+<div id="loading">
+<h3>📡 Analyzing News...</h3>
+</div>
+
+</div>
+</div>
+
+<script>
+document.querySelector("form").addEventListener("submit", function(){
+    document.getElementById("loading").style.display="block";
+});
+</script>
+
+</body>
+</html>
