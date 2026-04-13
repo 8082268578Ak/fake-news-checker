@@ -17,7 +17,7 @@ def predict():
         news = request.form['news']
 
         vec = vectorizer.transform([news])
-        prob = model.predict_proba(vec)[0][1]
+        prob = model.predict_proba(vec)[0][1]#hhhhh
 
         confidence = round(prob * 100, 2)
 
