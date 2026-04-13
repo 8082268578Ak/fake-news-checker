@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Load model & vectorizer
 model = pickle.load(open("model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+vectorizer = pickle.load(open("vectorizer.pkl", "rb"))#hhhhh
 
 @app.route('/')
 def home():
