@@ -20,7 +20,7 @@ df = df[['text', 'label']]#hhhhh
 
 # Split
 X_train, X_test, y_train, y_test = train_test_split(
-    df['text'], df['label'], test_size=0.2, random_state=42
+    df['text'], df['label'], test_size=0.2, random_state=42#hhhhh
 )
 
 # Vectorizer
