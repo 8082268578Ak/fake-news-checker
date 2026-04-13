@@ -24,7 +24,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # Vectorizer
-vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)
+vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)#hhhhh
 X_train_vec = vectorizer.fit_transform(X_train)
 
 # Model
