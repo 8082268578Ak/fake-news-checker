@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding-top: 100px;
+            background: #f5f5f5;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .fake { color: red; }
+        .moderate { color: orange; }
+        .true { color: green; }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>Analysis Result</h2>
+
+    <p><b>Input:</b> {{ text }}</p>
+
+    <p><b>Confidence:</b> {{ confidence }}%</p>
+
+    {% if "FAKE" in prediction %}
+        <h2 class="fake">{{ prediction }}</h2>
+    {% elif "MODERATE" in prediction %}
+        <h2 class="moderate">{{ prediction }}</h2>
+    {% else %}
+        <h2 class="true">{{ prediction }}</h2>
+    {% endif %}
+
+    <a href="/">⬅ Back</a>
+
+</div>
+
+</body>
+</html>

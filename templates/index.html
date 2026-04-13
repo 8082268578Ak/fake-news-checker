@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Checker</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        textarea {
+            width: 60%;
+            height: 120px;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+            transition: 0.3s;
+        }
+
+        textarea:focus {
+            transform: scale(1.02);
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            background: #ff9800;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: #e68900;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📰 Fake News Checker</h1>
+
+    <form action="/predict" method="post">
+        <textarea name="news" placeholder="Enter news here..."></textarea><br><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+</body>
+</html>
