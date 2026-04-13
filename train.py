@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 import pickle
 
 # Load datasets
-fake = pd.read_csv("Fake.csv")
+fake = pd.read_csv("Fake.csv")#hhhhh
 true = pd.read_csv("True.csv")
 #hhhhh
 # Add labels
