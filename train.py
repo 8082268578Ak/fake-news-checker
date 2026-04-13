@@ -6,7 +6,7 @@ import pickle
 
 # Load datasets
 fake = pd.read_csv("Fake.csv")#hhhhh
-true = pd.read_csv("True.csv")
+true = pd.read_csv("True.csv")#hhhhh
 #hhhhh
 # Add labels
 fake['label'] = 0
