@@ -16,7 +16,7 @@ true['label'] = 1
 df = pd.concat([fake, true])#hhhhh
 
 # Use only text + label
-df = df[['text', 'label']]
+df = df[['text', 'label']]#hhhhh
 
 # Split
 X_train, X_test, y_train, y_test = train_test_split(
