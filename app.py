@@ -11,7 +11,7 @@ vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 def home():
     return render_template("index.html")#hhhhh
 #ghh
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])#yyyy
 def predict():
     try:
         news = request.form['news']
