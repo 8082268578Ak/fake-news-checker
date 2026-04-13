@@ -13,7 +13,7 @@ fake['label'] = 0
 true['label'] = 1
 
 # Combine
-df = pd.concat([fake, true])
+df = pd.concat([fake, true])#hhhhh
 
 # Use only text + label
 df = df[['text', 'label']]
