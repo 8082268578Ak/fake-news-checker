@@ -23,7 +23,7 @@ def predict():
 
         # 3-class logic
         if prob < 0.4:
-            result = "FAKE NEWS ❌"
+            result = "FAKE NEWS ❌"#hhhhh
         elif prob < 0.7:
             result = "MODERATE NEWS ⚠"
         else:
